@@ -1,4 +1,4 @@
-var CURRENT_CACHE = '2020-04-07-0830';
+var CURRENT_CACHE = '2020-04-12-2020';
 
 // INSTALL
 self.addEventListener('install', (event) => {
@@ -13,7 +13,6 @@ self.addEventListener('install', (event) => {
         'manifest.json',
         'script.js',
         'script-aux.js',
-        'css/w3.css',
         'css/hg-media.css',
         'css/hg.css',
         'index.html'

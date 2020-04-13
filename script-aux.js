@@ -34,9 +34,7 @@ function SideBarClose() {
 
 
 
-
-
-function AccToggle(accID) {
+/* function AccToggle(accID) {
   var chevronId = accID + "_c";
   var x = document.getElementById(accID);
   var chevron = document.getElementById(chevronId);
@@ -54,16 +52,14 @@ function AccToggle(accID) {
     sessionStorage.setItem(accID, 'block')
   }
   var data = sessionStorage.getItem(accID);
-}
+} */
 
 const BACKBUTTON = '&#8592;';
-// const TITLEHTML = "OB/GYN Referenced<sup>r</sup>";
-const TITLEHTML = "";
-// const HAMBURGER = '&#9776';
-const HAMBURGER = 'Menu';
-const ARROWRIGHT = '&#10148;';
+const HAMBURGER = '&#9776';
+//const HAMBURGER = 'Menu';
+/* const ARROWRIGHT = '&#10148;';
 const ARROWDOWN = "+";
-const ARROWUP = '&#8722;';
+const ARROWUP = '&#8722;'; */
 
 //Sets divs for accordian and algorithms on page
 function SetUpPage() {
@@ -72,13 +68,12 @@ function SetUpPage() {
   var bk = document.getElementById("bkbtn");
   bk.innerHTML = BACKBUTTON;
 
-  var tb = document.getElementById("titbar");
-  tb.innerHTML = TITLEHTML;
-
   var hmbg = document.getElementById("hmbrgbtn");
   hmbg.innerHTML = HAMBURGER;
 
-  var accArray = document.getElementsByClassName("hg-accDivMain");
+  CreateSideBar();
+
+  /* var accArray = document.getElementsByClassName("hg-accDivMain");
   for (i = 0; i < accArray.length; i++) {
     var accdiv = accArray[i];
     var data = sessionStorage.getItem(accdiv.id);
@@ -95,8 +90,8 @@ function SetUpPage() {
       chevron.innerHTML = ARROWDOWN;
       accdiv.style.display = "none";
     }
-  }
-  var algoArray = document.getElementsByClassName("hg-algoDivMain");
+  } */
+  /* var algoArray = document.getElementsByClassName("hg-algoDivMain");
   for (i = 0; i < algoArray.length; i++) {
     var algodiv = algoArray[i];
     var data = sessionStorage.getItem(algodiv.id);
@@ -118,86 +113,40 @@ function SetUpPage() {
     // iArray[0].className = ARROWRIGHT;
     var iArray = nla.getElementsByTagName("p");
     iArray[0].innerHTML = ARROWRIGHT;
-  }
+  } */
 
-  CreateSideBar();
+
 }
 
 
 function CreateSideBar() {
   var sideBar = document.getElementById("mySidebar");
 
-  var menu = document.createElement("h4");
-  var menuText = document.createTextNode("Menu");
-  menu.appendChild(menuText);
-  sideBar.appendChild(menu);
+  var toc = document.createElement("a");
+  var tocText = document.createTextNode("Table of Contents");
+  toc.appendChild(tocText);
+  toc.setAttribute("class", "hg-SideBarItem")
+  toc.setAttribute("href", "toc.html")
+  sideBar.appendChild(toc);
 
-  // var obstetrics = document.createElement("h5");
-  // var obstetricsText = document.createTextNode("Obstetrics");
-  // obstetrics.appendChild(obstetricsText);
-  // sideBar.appendChild(obstetrics);
-
-  // var ob = document.createElement("a");
-  // var obText = document.createTextNode("Obstetrics");
-  // ob.appendChild(obText);
-  // ob.setAttribute("class", "hg-SideBarItem")
-  // ob.setAttribute("href", "ob_index.html")
-  // sideBar.appendChild(ob);
-
-  // var start = document.createElement("a");
-  // var startText = document.createTextNode("Index");
-  // start.appendChild(startText);
-  // start.setAttribute("class", "hg-SideBarItem2")
-  // start.setAttribute("href", "ob_index.html")
-  // sideBar.appendChild(start);
- 
-
-  // var glossaryHeader = document.createElement("p");
-  // var glossaryHeaderText = document.createTextNode("Glossaries");
-  // glossaryHeader.appendChild(glossaryHeaderText);
-  // glossaryHeader.setAttribute("class", "hg-SideBarSubHeader")
-  // sideBar.appendChild(glossaryHeader);
-
-  var obGlossary = document.createElement("a");
-  var obGlossaryText = document.createTextNode("Obstetric Index");
-  obGlossary.appendChild(obGlossaryText);
-  obGlossary.setAttribute("class", "hg-SideBarItem")
-  obGlossary.setAttribute("href", "ob_glossary.html")
-  sideBar.appendChild(obGlossary);
-
-  // var gynGlossary = document.createElement("a");
-  // var gynGlossaryText = document.createTextNode("Gynecology");
-  // gynGlossary.appendChild(gynGlossaryText);
-  // gynGlossary.setAttribute("class", "hg-SideBarItem")
-  // gynGlossary.setAttribute("href", "gyn_index.html")
-  // sideBar.appendChild(gynGlossary);
-
-  var gynGlossary = document.createElement("a");
-  var gynGlossaryText = document.createTextNode("Gynecology Index");
-  gynGlossary.appendChild(gynGlossaryText);
-  gynGlossary.setAttribute("class", "hg-SideBarItem")
-  gynGlossary.setAttribute("href", "gyn_glossary.html")
-  sideBar.appendChild(gynGlossary);
-
-  // var obGlossary = document.createElement("a");
-  // var obGlossaryText = document.createTextNode("Site Map");
-  // obGlossary.appendChild(obGlossaryText);
-  // obGlossary.setAttribute("class", "hg-SideBarItem")
-  // obGlossary.setAttribute("href", "sitemap.html")
-  // sideBar.appendChild(obGlossary);
+  var ref = document.createElement("a");
+  var refText = document.createTextNode("Refrerences");
+  ref.appendChild(refText);
+  ref.setAttribute("class", "hg-SideBarItem")
+  ref.setAttribute("href", "ref.html")
+  sideBar.appendChild(ref);
 
   var about = document.createElement("a");
   var aboutText = document.createTextNode("About");
   about.appendChild(aboutText);
   about.setAttribute("class", "hg-SideBarItem")
-  about.setAttribute("href", "about.html")
+  about.setAttribute("href", "index.html")
   sideBar.appendChild(about);
-
 
 }
 
 /*Algorhithm-------------------------------------------------------------------------------*/
-function AlgoNext(idhide, idshow) {
+/* function AlgoNext(idhide, idshow) {
   //  alert('Here');
   //  alert(idhide);
   document.getElementById(idhide).style.display = "none";
@@ -205,7 +154,7 @@ function AlgoNext(idhide, idshow) {
   document.getElementById(idshow).style.display = "block";
   sessionStorage.setItem(idshow, 'block')
   // alert('Here');
-}
+} */
 
 // function AlgoNext(idhide, idshow, algobackstep) {
 //   // alert('Here');
@@ -223,14 +172,14 @@ function AlgoNext(idhide, idshow) {
 // //  alert(idshow);
 // }
 
-function AlgoBack(idhide, algobackstep) {
+/* function AlgoBack(idhide, algobackstep) {
   document.getElementById(idhide).style.display = "none";
   sessionStorage.setItem(idhide, 'none')
   var idshow = sessionStorage.getItem(algobackstep);
   document.getElementById(idshow).style.display = "block";
   sessionStorage.setItem(idshow, 'block')
   //  alert(idshow);
-}
+} */
 
 
 /* function SetAlgoDivs() {
@@ -252,6 +201,7 @@ function AlgoBack(idhide, algobackstep) {
 } */
 
 /*Glossary-----------------------------------------------------------------------------------------------*/
-function ScrollToSection(section) {
+/* function ScrollToSection(section) {
   document.getElementById(section).scrollIntoView({ block: "start", behavior:"auto" });
 }
+ */
